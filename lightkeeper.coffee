@@ -1,20 +1,22 @@
 # Deps
-{ program } = require '@caporal/core'
-{ computeMultiplierMessages } = require './src/cpu-throttling-calculator'
-lighthouse = require 'lighthouse'
-chromeLauncher = require 'chrome-launcher'
-createProgressBar = require 'progress-estimator'
-defaultProgressTheme = require 'progress-estimator/src/theme'
-stats = require 'stats-lite'
-readline = require 'readline'
-Table = require 'cli-table'
-chalk = require 'chalk'
+import caporalCore from '@caporal/core'
+import {computeMultiplierMessages} from './src/cpu-throttling-calculator.js'
+import lighthouse from 'lighthouse'
+import * as chromeLauncher from 'chrome-launcher'
+import createProgressBar from 'progress-estimator'
+import defaultProgressTheme from 'progress-estimator/src/theme.js'
+import stats from 'stats-lite'
+import readline from 'readline'
+import Table from 'cli-table'
+import chalk from 'chalk'
 
+{program} = caporalCore
 
 # Load Lighthouse configs
-configs =
-	desktop: require 'lighthouse/lighthouse-core/config/lr-desktop-config.js'
-	mobile: require 'lighthouse/lighthouse-core/config/lr-mobile-config.js'
+import desktop from 'lighthouse/core/config/lr-desktop-config.js'
+import mobile from 'lighthouse/core/config/lr-mobile-config.js'
+configs = {desktop, mobile}
+
 
 # On cntrl-c, trigger normal exit behavior
 process.on 'SIGINT', -> process.exit(0)
