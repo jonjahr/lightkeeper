@@ -5,7 +5,7 @@
  * Returns the multipliers and error messages for the BenchmarkIndex.
  * @see https://docs.google.com/spreadsheets/d/1E0gZwKsxegudkjJl8Fki_sOwHKpqgXwt8aBAfuUaB8A/edit#gid=0
  */
-exports.computeMultiplierMessages = function (benchmarkIndex) {
+export const computeMultiplierMessages = function (benchmarkIndex) {
   if (!Number.isFinite(benchmarkIndex)) return undefined
   if (benchmarkIndex >= 1300) {
     // 2000 = 6x slowdown
